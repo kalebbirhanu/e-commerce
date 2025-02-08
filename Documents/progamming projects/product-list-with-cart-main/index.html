@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+  </head>
+
+<body >
+<div class="container">
+  <header>
+    <h1 class="m-4">Desserts</h1>
+  </header>
+  <main>
+    <div class="row">
+    <div class="col-md-8">
+      
+    <section id="section1" class="row g-3">
+
+    </section>
+
+</div>
+<div class="col-md-4">
+    <aside class="selected-items container">
+      <h3 id="your-Cart">Your Cart (0)</h3>
+      <ul id="selected-items-list" class="list-group"> </ul>
+      <div class="total-price mt-3" id="total-price">
+        <span id="Text">Order Total:</span> <span id="total-prices ms-auto">0.00</span>
+      </div>
+      <!-- Carbon-Free Section -->
+      <div id="carbon-free" class="carbon-free"> </div>
+      <!-- Confirm Order Button -->
+      <div id="confirm-order" class="confirm-order"> </div>
+    </aside>
+    </div>
+    </div>
+
+
+  </main>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+       
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <img src="./assets/images/icon-order-confirmed.svg" alt="order-confirmed">
+        <h1>order confirmed</h1>
+        <p>we hope you enjoy your food</p>
+        <div id="modal-list"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn mx-auto w-100 rounded-pill" data-bs-dismiss="modal">Start New Order</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script  src="./index.js"  class="confirm-order"></script>
+  
+</body>
+
+</html>
