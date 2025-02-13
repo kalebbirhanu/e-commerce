@@ -241,35 +241,49 @@ function updateSelectedItemsList() {
             listofselected.classList.add("row");
             listofselected.innerHTML = "";
             selectedItems.forEach((item) => {
+
+
+                // modal image
                 const modalimg = document.createElement("img");
                 modalimg.classList.add("modalimg");
+                modalimg.src = item.image.desktop;
                 col1.appendChild(modalimg);
+
+                // modal texts
                 const listedone = document.createElement("li"); 
                 listedone.classList.add("m-0", "g-1");
+                listedone.textContent = `${(item.name)}`;
                 col2.appendChild(listedone);
+                // element price
                 const elementsPrice = document.createElement("p"); 
                  elementsPrice.classList.add("m-0", "g-1", "ms-auto");
                  let eachElementwithQuantityPrice = item.price * item.quantity;
                  elementsPrice.textContent = `$${eachElementwithQuantityPrice}`;
                  col2.appendChild(elementsPrice);
+
+
+                 const col3 = document.createElement("div");
+                 col3.classList.add("d-flex", "flex-row", "g-1");
+                 // quantity of selected element
+                 const quantity = document.createElement("p");
+                 quantity.classList.add("m-0", "g-1");
+                 quantity.textContent = `X${item.quantity}`;
+                 col3.appendChild(quantity);
+                 col2.appendChild(col3);
+
+                //  each elememnt price 
                 const price = document.createElement("p");
-                price.classList.add("m-0", "g-1");
-                col2.appendChild(price);
-                const quantity = document.createElement("p");
-                quantity.classList.add("m-0", "g-1");
-                col2.appendChild(quantity);
-
-                modalimg.src = item.image.desktop;
-                listedone.textContent = `${(item.name)}`;
-
-                quantity.textContent = `X${item.quantity}`;
+                price.classList.add("m-0", "g-1", "d-flex", "flex-row");
                 price.textContent = `@${item.price}`;
+                col3.appendChild(price);
+
+
 
                 listofselected.appendChild(col1);
                 listofselected.appendChild(col2);
                 listofselected.appendChild(col2);
                 listofselected.appendChild(col2);
-                listofselected.appendChild(col2);
+             
 
 
 
