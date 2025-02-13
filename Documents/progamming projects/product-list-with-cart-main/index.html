@@ -30,7 +30,7 @@
       <h3 id="your-Cart">Your Cart (0)</h3>
       <ul id="selected-items-list" class="list-group"> </ul>
       <div class="total-price mt-3" id="total-price">
-        <span id="Text">Order Total:</span> <span id="total-prices ms-auto">0.00</span>
+        <span id="Text">Order Total:</span> <span id="total-prices" class="ms-auto">0.00</span>
       </div>
       <!-- Carbon-Free Section -->
       <div id="carbon-free" class="carbon-free"> </div>
@@ -46,15 +46,14 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="false">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-       
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
         <div class="modal-body">
         <img src="./assets/images/icon-order-confirmed.svg" alt="order-confirmed">
         <h1>order confirmed</h1>
         <p>we hope you enjoy your food</p>
-        <div id="modal-list"></div>
+        <div id="modal-list" class="d-flex">
+
+
+        </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn mx-auto w-100 rounded-pill" data-bs-dismiss="modal">Start New Order</button>

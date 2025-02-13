@@ -180,7 +180,7 @@ function updateSelectedItemsList() {
 
         // Update total quantity and price
         totalQuantity += item.quantity;
-        totalPrice += item.price * item.quantity;
+        totalPrice += (item.price * item.quantity);
     });
 
     // Update the cart amount
@@ -188,7 +188,7 @@ function updateSelectedItemsList() {
 
     // Update the total price
     totalPriceElement.textContent = `$${totalPrice}`;
-totalPriceElement.classList.add();
+
     // Render Carbon-Free Section
     carbonFreeSection.innerHTML = ""; // Clear previous content
 
@@ -226,22 +226,28 @@ totalPriceElement.classList.add();
     if (selectedItems.length > 0) {
         const confirmButton = document.createElement("button");
         confirmButton.textContent = "Confirm Order";
-        confirmButton.classList.add("btn", "btn-success", "mt-3");
+        confirmButton.classList.add("btn", "mx-auto", "w-100",  "rounded-pill");
         confirmOrderSection.appendChild(confirmButton);
         confirmButton.addEventListener("click", function () {
             confirmButton.setAttribute("data-bs-toggle", "modal");
             confirmButton.setAttribute("data-bs-target", "#staticBackdrop");
 
             let listofselected = document.getElementById("modal-list");
+           
+
+            listofselected.classList.add("row", "d-flex");
             listofselected.innerHTML = "";
             selectedItems.forEach((item) => {
-                const modalimg = document.createElement("img")
-                modalimg.classList.add("w-10", "h-5");
-                const listedone = document.createElement("li");
+                const modalimg = document.createElement("img");
+                modalimg.classList.add("modalimg");
+                const listedone = document.createElement("li"); 
+                listedone.classList.add("list-group-item");
                 const quantity = document.createElement("p");
+                // quantity.classList.add("col");
                 const price = document.createElement("p");
+                // price.classList.add("col");
                 const elementsPrice = document.createElement("p");
-
+                // elementsPrice.classList.add("col");
 
                 modalimg.src = item.image.desktop;
                 listedone.textContent = `${(item.name)}`;
@@ -396,7 +402,7 @@ function renderFoodItems() {
             
             
             
-            handleIncrement(element); // Add item to selected items
+            // handleIncrement(element); // Add item to selected items
         });
 
         // Increment quantity

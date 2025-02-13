@@ -104,3 +104,18 @@ color: var(--Rose500);
   display: flex;
   
  }
+
+ .confirm-order {
+  background-color: var(--Red);
+  border: none;
+  border-radius: 1rem;
+  color: white;
+ }
+
+ .modalimg {
+  width: 5rem;
+  height: 3rem;
+  display: flex;
+ }
+
+ 
