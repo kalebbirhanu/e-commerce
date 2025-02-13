@@ -233,34 +233,43 @@ function updateSelectedItemsList() {
             confirmButton.setAttribute("data-bs-target", "#staticBackdrop");
 
             let listofselected = document.getElementById("modal-list");
-           
+            let col1 = document.createElement("div");
+            col1.classList.add("col-auto")
+            let col2 = document.createElement("div");
+            col2.classList.add("col", "d-flex", "flex-column", "m-0", "g-1");
 
-            listofselected.classList.add("row", "d-flex");
+            listofselected.classList.add("row");
             listofselected.innerHTML = "";
             selectedItems.forEach((item) => {
                 const modalimg = document.createElement("img");
                 modalimg.classList.add("modalimg");
+                col1.appendChild(modalimg);
                 const listedone = document.createElement("li"); 
-                listedone.classList.add("list-group-item");
-                const quantity = document.createElement("p");
-                // quantity.classList.add("col");
+                listedone.classList.add("m-0", "g-1");
+                col2.appendChild(listedone);
+                const elementsPrice = document.createElement("p"); 
+                 elementsPrice.classList.add("m-0", "g-1", "ms-auto");
+                 let eachElementwithQuantityPrice = item.price * item.quantity;
+                 elementsPrice.textContent = `$${eachElementwithQuantityPrice}`;
+                 col2.appendChild(elementsPrice);
                 const price = document.createElement("p");
-                // price.classList.add("col");
-                const elementsPrice = document.createElement("p");
-                // elementsPrice.classList.add("col");
+                price.classList.add("m-0", "g-1");
+                col2.appendChild(price);
+                const quantity = document.createElement("p");
+                quantity.classList.add("m-0", "g-1");
+                col2.appendChild(quantity);
 
                 modalimg.src = item.image.desktop;
                 listedone.textContent = `${(item.name)}`;
 
                 quantity.textContent = `X${item.quantity}`;
                 price.textContent = `@${item.price}`;
-                let eachElementwithQuantityPrice = item.price * item.quantity;
-                elementsPrice.textContent = `$${eachElementwithQuantityPrice}`;
-                listofselected.appendChild(modalimg);
-                listofselected.appendChild(listedone);
-                listofselected.appendChild(quantity);
-                listofselected.appendChild(price);
-                listofselected.appendChild(elementsPrice);
+
+                listofselected.appendChild(col1);
+                listofselected.appendChild(col2);
+                listofselected.appendChild(col2);
+                listofselected.appendChild(col2);
+                listofselected.appendChild(col2);
 
 
 
