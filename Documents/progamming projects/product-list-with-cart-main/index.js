@@ -233,56 +233,57 @@ function updateSelectedItemsList() {
             confirmButton.setAttribute("data-bs-target", "#staticBackdrop");
 
             let listofselected = document.getElementById("modal-list");
-            let col1 = document.createElement("div");
-            col1.classList.add("col-auto")
-            let col2 = document.createElement("div");
-            col2.classList.add("col", "d-flex", "flex-column", "m-0", "g-1");
+           
+            
+            
+           
 
-            listofselected.classList.add("row");
             listofselected.innerHTML = "";
             selectedItems.forEach((item) => {
 
 
                 // modal image
+                
                 const modalimg = document.createElement("img");
                 modalimg.classList.add("modalimg");
                 modalimg.src = item.image.desktop;
-                col1.appendChild(modalimg);
+                
+                listofselected.appendChild(modalimg);
 
                 // modal texts
-                const listedone = document.createElement("li"); 
-                listedone.classList.add("m-0", "g-1");
+               
+                const listedone = document.createElement("span"); 
+                listedone.classList.add("listdone");
+               
                 listedone.textContent = `${(item.name)}`;
-                col2.appendChild(listedone);
+              
+                listofselected.appendChild(listedone);
+
                 // element price
-                const elementsPrice = document.createElement("p"); 
-                 elementsPrice.classList.add("m-0", "g-1", "ms-auto");
+            
+                const elements = document.createElement("span"); 
+                elements.classList.add("elements", "ms-auto");
                  let eachElementwithQuantityPrice = item.price * item.quantity;
-                 elementsPrice.textContent = `$${eachElementwithQuantityPrice}`;
-                 col2.appendChild(elementsPrice);
+                 elements.textContent = `$${eachElementwithQuantityPrice}`;
+               
+                 listofselected.appendChild(elements);
 
 
-                 const col3 = document.createElement("div");
-                 col3.classList.add("d-flex", "flex-row", "g-1");
+               
                  // quantity of selected element
-                 const quantity = document.createElement("p");
-                 quantity.classList.add("m-0", "g-1");
-                 quantity.textContent = `X${item.quantity}`;
-                 col3.appendChild(quantity);
-                 col2.appendChild(col3);
-
-                //  each elememnt price 
-                const price = document.createElement("p");
-                price.classList.add("m-0", "g-1", "d-flex", "flex-row");
-                price.textContent = `@${item.price}`;
-                col3.appendChild(price);
+               
+                 const quantity = document.createElement("span");
+                  quantity.classList.add("quantity");
+                quantity.textContent = `X${item.quantity}  @${item.price}`;
+               
+                 listofselected.appendChild(quantity);
+                 
+               
+                
 
 
 
-                listofselected.appendChild(col1);
-                listofselected.appendChild(col2);
-                listofselected.appendChild(col2);
-                listofselected.appendChild(col2);
+                
              
 
 

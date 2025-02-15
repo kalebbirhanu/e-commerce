@@ -112,10 +112,40 @@ color: var(--Rose500);
   color: white;
  }
 
- .modalimg {
-  width: 5rem;
-  height: 3rem;
-  display: flex;
+ #modal-list {
+  display: grid;
+  grid-template-columns: auto auto;
+  
+  
  }
 
+ .modalimg {
+  width: 5rem;
+  height: 5rem;
+ grid-row: 1 / 5;
+ 
+  
+ }
+
+
+.listdone, .quantity {
+ 
+justify-self: start;
+margin-left: -10rem;
+  
+}
+ 
+
+ .elementprice {
+  justify-items: end;
+ }
+
+ 
+
+ 
+
+
+ 
+
+ 
  
