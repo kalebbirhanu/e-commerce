@@ -94,17 +94,7 @@ color: var(--Rose300);
 color: var(--Rose500);
  }
 
- .total-price {
-  display: flex;
-  justify-content: space-around;
  
- }
-
- #total-prices {
-  display: flex;
-  
- }
-
  .confirm-order {
   background-color: var(--Red);
   border: none;
@@ -112,43 +102,9 @@ color: var(--Rose500);
   color: white;
  }
 
- /* #modal-list {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: auto auto auto auto;
-  
-  
- }
-
- .modalimg {
-  width: 5rem;
-  height: 5rem;
- grid-row: 1 / 4;
- grid-column: 1 / 2;
- 
-  
- }
-
-
-.listdone {
- 
-grid-row: 1/ 3;
-  grid-column: 2/ 3;
-
-  
-}
  
 
- .elementprice {
- align-self: end;
  
- } 
-
- .quantity {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-
- } */
 
  
 

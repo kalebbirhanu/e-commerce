@@ -114,7 +114,6 @@ let selectedItems = [];
 function updateSelectedItemsList() {
     const selectedAmount = document.getElementById("your-Cart");
     const selectedItemsList = document.getElementById("selected-items-list");
-    const totalPriceElement = document.getElementById("total-prices");
     const carbonFreeSection = document.getElementById("carbon-free");
     const confirmOrderSection = document.getElementById("confirm-order");
 
@@ -126,14 +125,39 @@ function updateSelectedItemsList() {
 
     // Add each selected item to the list
     selectedItems.forEach((item) => {
-        const li = document.createElement("li");
-        li.classList.add();
+        const card = document.createElement("div");
+        card.classList.add("d-flex", "justify-content-between", "border-bottom", "pb-2", "mb-2");
+
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("d-flex", "align-items-center", "gap-2");
+        const cardTexts = document.createElement("div");
+
+        
+       
 
         // Item name
-        const itemName = document.createElement("span");
+        const itemName = document.createElement("p");
         itemName.textContent = item.name;
+        cardTexts.appendChild(itemName);
 
 
+        
+        // Item quantity and price
+        const itemquantity = document.createElement("p");
+       itemquantity.classList.add("itemquantity");
+        itemquantity.textContent = `X${item.quantity}   @$${item.price}   $${item.price * item.quantity}`;
+        cardTexts.appendChild(itemquantity);
+
+        // const itemPrice = document.createElement("p");
+        // itemPrice.classList.add("itemprice");
+        // itemPrice.textContent = `@$${item.price}   $${item.price * item.quantity}    `;
+        // cardTexts.appendChild(itemPrice);
+
+        // const itemValues = document.createElement("span");
+        // itemValues.classList.add("itemValues", "p-2");
+        // itemValues.textContent = `$${item.price * item.quantity}`;
+        // cardTexts.appendChild(itemValues);
+        
         //remove item
         const removeItem = document.createElement("button");
         const removeimg = document.createElement("img");
@@ -145,39 +169,21 @@ function updateSelectedItemsList() {
            selectedItems = selectedItems.filter((i) => i.name !== item.name);
             updateSelectedItemsList();
         })
+        cardBody.appendChild(cardTexts);
+        
 
-        // Item quantity and price
-        const itemDetails = document.createElement("span");
-        itemDetails.classList.add("d-flex");
-        const itemquantity = document.createElement("span");
-       itemquantity.classList.add("itemquantity", "p-2");
-        itemquantity.textContent = `X${item.quantity}`;
-        const itemPrice = document.createElement("span");
-        itemPrice.classList.add("itemprice", "p-2");
-        itemPrice.textContent = `@$${item.price}`;
-        const itemValues = document.createElement("span");
-        itemValues.classList.add("itemValues", "p-2");
-        itemValues.textContent = `$${item.price * item.quantity}`;
-    
-
-//    append elemnts into itemdeatils
-        itemDetails.appendChild(itemquantity);
-        itemDetails.appendChild(itemPrice);
-        itemDetails.appendChild(itemValues);  
-
+  card.appendChild(cardBody);
+ card.appendChild(removeItem);
 
         // Append itemname to the list item
-        li.appendChild(itemName);
+       
        
 
         // Append the list item to the selected items list
-        selectedItemsList.appendChild(li);
-        selectedItemsList.appendChild(removeItem);
-        selectedItemsList.appendChild(itemDetails);
+        
+        selectedItemsList.appendChild(card);
        
         
-        selectedItemsList.classList.add("d-flex", "flex-column");
-
         // Update total quantity and price
         totalQuantity += item.quantity;
         totalPrice += (item.price * item.quantity);
@@ -187,7 +193,11 @@ function updateSelectedItemsList() {
     selectedAmount.textContent = `Your Cart (${totalQuantity})`;
 
     // Update the total price
-    totalPriceElement.textContent = `$${totalPrice}`;
+    const totalmoney = document.createElement("div");
+    totalmoney.classList.add("d-flex", "justify-content-between", "fw-bold", "fs-5", "mt-2");
+    totalmoney.innerHTML = `<p>Order Total</p><p>$${totalPrice}</p>`;
+
+    selectedItemsList.appendChild(totalmoney);
 
     // Render Carbon-Free Section
     carbonFreeSection.innerHTML = ""; // Clear previous content
@@ -228,16 +238,16 @@ function updateSelectedItemsList() {
         confirmButton.textContent = "Confirm Order";
         confirmButton.classList.add("btn", "mx-auto", "w-100",  "rounded-pill");
         confirmOrderSection.appendChild(confirmButton);
+
+
         confirmButton.addEventListener("click", function () {
-            confirmButton.setAttribute("data-bs-toggle", "modal");
-            confirmButton.setAttribute("data-bs-target", "#staticBackdrop");
 
-            
-            const listofselected = document.getElementById("modal-list");
-            
-            
-           
 
+              confirmButton.setAttribute("data-bs-toggle", "modal");
+              confirmButton.setAttribute("data-bs-target", "#staticBackdrop");
+
+           const listofselected = document.getElementById("modal-list");
+            
             listofselected.innerHTML = "";
             selectedItems.forEach((item) => {
             const card = document.createElement("div");
@@ -248,7 +258,7 @@ function updateSelectedItemsList() {
                 // modal image
                 
                 const modalimg = document.createElement("img");
-                modalimg.classList.add("w-10", "h-10", "rounded");
+                modalimg.classList.add("w-15", "h-15", "rounded");
                 modalimg.src = item.image.desktop;
                 modalimg.style.width = "40px";
                 modalimg.style.height = "40px";
@@ -289,7 +299,7 @@ function updateSelectedItemsList() {
                
                  
                
-                totalPrice += (item.price * item.quantity);
+                
  })
 
 
