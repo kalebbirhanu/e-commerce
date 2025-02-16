@@ -289,17 +289,15 @@ function updateSelectedItemsList() {
                
                  
                
-                
+                totalPrice += (item.price * item.quantity);
+ })
 
 
+            const totalRow = document.createElement("div");
+            totalRow.classList.add("d-flex", "justify-content-between", "fw-bold", "fs-5", "mt-2");
+            totalRow.innerHTML = `<p>Order Total</p><p>$${totalPrice}</p>`;
 
-                
-             
-
-
-
-            })
-
+            listofselected.appendChild(totalRow);
 
         });
 
