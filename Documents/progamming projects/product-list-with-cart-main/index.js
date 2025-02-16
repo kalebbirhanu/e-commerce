@@ -148,22 +148,19 @@ function updateSelectedItemsList() {
         itemquantity.textContent = `X${item.quantity}   @$${item.price}   $${item.price * item.quantity}`;
         cardTexts.appendChild(itemquantity);
 
-        // const itemPrice = document.createElement("p");
-        // itemPrice.classList.add("itemprice");
-        // itemPrice.textContent = `@$${item.price}   $${item.price * item.quantity}    `;
-        // cardTexts.appendChild(itemPrice);
-
-        // const itemValues = document.createElement("span");
-        // itemValues.classList.add("itemValues", "p-2");
-        // itemValues.textContent = `$${item.price * item.quantity}`;
-        // cardTexts.appendChild(itemValues);
+       
         
         //remove item
         const removeItem = document.createElement("button");
         const removeimg = document.createElement("img");
+        removeimg.classList.add("text-center");
+        removeItem.classList.add("remove", "rounded-circle", "round-0", "ms-auto", "btn-sm");
         removeimg.src = "./assets/images/icon-remove-item.svg";
+        removeimg.style.width = "0.5rem";
+        removeimg.style.height = "1rem";
+        // removeItem.style.width = "1.5rem";
+        //  removeItem.style.height = "2rem";
         removeItem.appendChild(removeimg);
-        removeItem.classList.add("remove", "rounded-circle", "round-0", "ms-auto");
 
         removeItem.addEventListener("click", function () {
            selectedItems = selectedItems.filter((i) => i.name !== item.name);
