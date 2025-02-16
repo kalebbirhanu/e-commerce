@@ -232,51 +232,61 @@ function updateSelectedItemsList() {
             confirmButton.setAttribute("data-bs-toggle", "modal");
             confirmButton.setAttribute("data-bs-target", "#staticBackdrop");
 
-            let listofselected = document.getElementById("modal-list");
-           
+            
+            const listofselected = document.getElementById("modal-list");
             
             
            
 
             listofselected.innerHTML = "";
             selectedItems.forEach((item) => {
-
-
+            const card = document.createElement("div");
+                card.classList.add("d-flex", "justify-content-between", "border-bottom", "pb-2", "mb-2");
+            const cardBody = document.createElement("div"); 
+                cardBody.classList.add("d-flex", "align-items-center", "gap-2");
+            const cardTexts = document.createElement("div");
                 // modal image
                 
                 const modalimg = document.createElement("img");
-                modalimg.classList.add("modalimg");
+                modalimg.classList.add("w-10", "h-10", "rounded");
                 modalimg.src = item.image.desktop;
-                
-                listofselected.appendChild(modalimg);
+                modalimg.style.width = "40px";
+                modalimg.style.height = "40px";
+                cardBody.appendChild(modalimg);
 
                 // modal texts
                
-                const listedone = document.createElement("span"); 
+                const listedone = document.createElement("p"); 
                 listedone.classList.add("listdone");
                
                 listedone.textContent = `${(item.name)}`;
               
-                listofselected.appendChild(listedone);
+                cardTexts.appendChild(listedone);
 
+                
+                // quantity of selected element
+                const quantity = document.createElement("p");
+                quantity.classList.add("quantity");
+               quantity.textContent = `X${item.quantity}  @${item.price}`;
+              
+               cardTexts.appendChild(quantity);
+               
+               
+               cardBody.appendChild(cardTexts);
+               
                 // element price
-            
-                const elements = document.createElement("span"); 
+                const elements = document.createElement("p"); 
                 elements.classList.add("elements", "ms-auto");
                  let eachElementwithQuantityPrice = item.price * item.quantity;
                  elements.textContent = `$${eachElementwithQuantityPrice}`;
+
+                 card.appendChild(cardBody);
                
-                 listofselected.appendChild(elements);
+                 card.appendChild(elements);
 
 
+               listofselected.appendChild(card);
                
-                 // quantity of selected element
-               
-                 const quantity = document.createElement("span");
-                  quantity.classList.add("quantity");
-                quantity.textContent = `X${item.quantity}  @${item.price}`;
-               
-                 listofselected.appendChild(quantity);
                  
                
                 
